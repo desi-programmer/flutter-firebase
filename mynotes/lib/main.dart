@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mynotes/pages/homepage.dart';
 import 'package:mynotes/pages/login.dart';
 
 void main() async {
@@ -19,7 +21,12 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.white,
         scaffoldBackgroundColor: Color(0xff070706),
       ),
-      home: LoginPage(),
+      // which used to re-authenticate every time App was opened
+      // earlier I was simply calling the Login page
+      // fixed it here
+      // home: LoginPage(),
+      home:
+          FirebaseAuth.instance.currentUser == null ? LoginPage() : HomePage(),
     );
   }
 }
