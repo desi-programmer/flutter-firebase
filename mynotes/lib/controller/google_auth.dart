@@ -9,7 +9,9 @@ GoogleSignIn googleSignIn = GoogleSignIn();
 final FirebaseAuth auth = FirebaseAuth.instance;
 CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-Future<bool> signInWithGoogle(BuildContext context) async {
+// changing return type to void
+// as bool was not needed here
+void signInWithGoogle(BuildContext context) async {
   try {
     final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
 
@@ -59,5 +61,6 @@ Future<bool> signInWithGoogle(BuildContext context) async {
   } catch (PlatformException) {
     print(PlatformException);
     print("Sign in not successful !");
+    // better show an alert here
   }
 }
