@@ -23,6 +23,11 @@ class _HomePageState extends State<HomePage> {
     Colors.red[200],
     Colors.green[200],
     Colors.deepPurple[200],
+    Colors.purple[200],
+    Colors.cyan[200],
+    Colors.teal[200],
+    Colors.tealAccent[200],
+    Colors.pink[200],
   ];
 
   @override
@@ -66,6 +71,17 @@ class _HomePageState extends State<HomePage> {
         future: ref.get(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            if (snapshot.data.docs.length == 0) {
+              return Center(
+                child: Text(
+                  "You have no saved Notes !",
+                  style: TextStyle(
+                    color: Colors.white70,
+                  ),
+                ),
+              );
+            }
+
             return ListView.builder(
               itemCount: snapshot.data.docs.length,
               itemBuilder: (context, index) {
@@ -75,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                 DateTime mydateTime = data['created'].toDate();
                 String formattedTime =
                     DateFormat.yMMMd().add_jm().format(mydateTime);
+
                 return InkWell(
                   onTap: () {
                     Navigator.of(context)
