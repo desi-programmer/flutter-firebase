@@ -7,8 +7,7 @@ Watch Tutorial Here : https://www.youtube.com/watch?v=O0f4m68-v58
 - Fixed Login Issue 
 
 # Update tutorial
-    - TODOS
+    - Changes
         - Add no Note on Home Page
         - Add Update
         - Add new colors for cards
-        
