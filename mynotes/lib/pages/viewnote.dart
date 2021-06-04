@@ -37,6 +37,8 @@ class _ViewNoteState extends State<ViewNote> {
               )
             : null,
         //
+        resizeToAvoidBottomInset: false,
+        //
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(
